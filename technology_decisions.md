@@ -38,7 +38,7 @@ This file records the technology choices for the Coliving House Manager (working
 - **Rationale**: Points, normalized scores (points per day present), rotation and the scoreboard are sums and joins, which suit a relational database. A hosted service means no server to maintain, and the free tier is more than enough for about 3 people. The developer has deep Python experience, some app experience through Claude Code, and will build with Claude Code only, so a service with a clear API and generated SQL is easy to work with. No custom Python backend is required.
 - **Key Tradeoffs Accepted**: Some lock-in to Supabase (mitigated because it is standard PostgreSQL and can be exported). Must learn row-level security rules to keep one house's data private. Free projects pause after about a week of inactivity, which daily use should avoid.
 - **Dependencies**: Drives the sign-in approach (invite link on top of Supabase auth), file storage for photos, scheduled jobs for occurrence creation and the 48-hour auto-grade, and the frontend's data client.
-- **Environment Notes**: Supabase can run locally on Windows with Docker if needed. Decided in Category 4.
+- **Environment Notes**: Supabase can run locally on Windows with Docker if needed. Decided in Category 4. Project created 2026-10-25 (free plan), region eu-north-1 (Stockholm), host `csrelhbxzrdoofbkphky.supabase.co`. Only the public publishable key is used in the app and Vercel; the secret key is never used in client code, Vercel or the repository.
 
 ### TD-002 — Frontend: React with Vite and TypeScript
 

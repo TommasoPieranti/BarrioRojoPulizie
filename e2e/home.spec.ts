@@ -45,4 +45,12 @@ test.describe('Home screen', () => {
 
     expect(light).not.toBe(dark);
   });
+
+  test('registers no service worker in development', async ({ page }) => {
+    await page.goto('/');
+    const count = await page.evaluate(
+      async () => (await navigator.serviceWorker.getRegistrations()).length,
+    );
+    expect(count).toBe(0);
+  });
 });
